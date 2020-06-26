@@ -1,4 +1,4 @@
-package com.github.mathan26.mathanspringpetclinic;
+package com.github.mathan26.petclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

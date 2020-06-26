@@ -1,4 +1,4 @@
-package com.github.mathan26.mathanspringpetclinic.model;
+package com.github.mathan26.petclinic.model;
 
 import java.time.LocalDate;
 
