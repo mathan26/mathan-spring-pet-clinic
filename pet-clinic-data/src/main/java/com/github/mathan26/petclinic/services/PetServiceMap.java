@@ -4,7 +4,7 @@ import com.github.mathan26.petclinic.model.Pet;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet,Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PerService  {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
