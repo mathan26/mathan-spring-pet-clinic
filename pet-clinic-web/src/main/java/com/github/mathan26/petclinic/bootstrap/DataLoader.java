@@ -3,9 +3,7 @@ package com.github.mathan26.petclinic.bootstrap;
 import com.github.mathan26.petclinic.model.Owner;
 import com.github.mathan26.petclinic.model.Vet;
 import com.github.mathan26.petclinic.services.OwnerService;
-import com.github.mathan26.petclinic.services.OwnerServiceMap;
 import com.github.mathan26.petclinic.services.VetService;
-import com.github.mathan26.petclinic.services.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

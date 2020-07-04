@@ -1,4 +1,4 @@
-package com.github.mathan26.petclinic.services;
+package com.github.mathan26.petclinic.services.map;
 
 import com.github.mathan26.petclinic.model.BaseEntity;
 

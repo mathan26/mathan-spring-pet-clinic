@@ -1,6 +1,8 @@
-package com.github.mathan26.petclinic.services;
+package com.github.mathan26.petclinic.services.map;
 
 import com.github.mathan26.petclinic.model.Pet;
+import com.github.mathan26.petclinic.services.PetService;
+import com.github.mathan26.petclinic.services.map.AbstractMapService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
