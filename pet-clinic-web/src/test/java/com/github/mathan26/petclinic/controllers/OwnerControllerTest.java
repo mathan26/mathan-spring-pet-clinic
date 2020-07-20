@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.mockito.ArgumentMatchers.anyString;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerControllerTest {
@@ -50,34 +52,25 @@ class OwnerControllerTest {
     }
 
     @Test
-    void listOwners() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/owners"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("owners/index"))
-                .andExpect(model().attribute("owners", hasSize(2)));
-
-    }
-
-    @Test
-    void listOwnersByIndex() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/owners/index"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("owners/index"))
-                .andExpect(model().attribute("owners", hasSize(2)));
-    }
-
-    @Test
     void findOwners() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/owners/find"))
+        mockMvc.perform(get("/owners/find"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("notimplemented"));
+                .andExpect(view().name("owners/findOwners"))
+                .andExpect(model().attributeExists("owner"));
 
         verifyZeroInteractions(ownerService);
     }
+
+    @Test
+    void processFindFormReturnMany() throws Exception {
+        when(ownerService.findAllByLastNameLike(anyString())).
+                thenReturn(Arrays.asList(Owner.builder().id(1l).build()));
+        mockMvc.perform(get("/owners"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/owners/1"));
+    }
+
+
 
     @Test
     void displayOwner() throws Exception {
