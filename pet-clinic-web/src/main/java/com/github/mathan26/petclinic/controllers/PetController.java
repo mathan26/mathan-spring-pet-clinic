@@ -51,6 +51,7 @@ public class PetController {
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         model.addAttribute("pet", pet);
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
