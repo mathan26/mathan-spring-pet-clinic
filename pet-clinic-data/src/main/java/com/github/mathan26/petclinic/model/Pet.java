@@ -11,7 +11,6 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "pets")
 public class Pet  extends BaseEntity{
