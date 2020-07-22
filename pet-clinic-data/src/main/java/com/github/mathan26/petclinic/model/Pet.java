@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Setter
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
